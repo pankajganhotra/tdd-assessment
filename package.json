@@ -4,7 +4,7 @@
   "description": "",
   "main": "add.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
