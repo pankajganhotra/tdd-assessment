@@ -27,4 +27,10 @@ describe("add function", () => {
     expect(add('//;\n1;2')).toBe(3);
     expect(add('//:\n2:3:4')).toBe(9);
   });
+
+  test('should handle negative numbers and throw error', () => {
+    expect(() => add('1,-2,3')).toThrowError('negative numbers not allowed -2');
+    expect(() => add('1,-2,-3')).toThrowError('negative numbers not allowed -2,-3');
+    expect(() => add('//;\n1;2;-3;4')).toThrowError('negative numbers not allowed -3');
+  });
 });
