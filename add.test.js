@@ -22,4 +22,9 @@ describe("add function", () => {
     expect(add('10\n20\n30')).toBe(60);
     expect(add('1\n5,  10\n15')).toBe(31);
   });
+
+  test('should handle custom delimiters', () => {
+    expect(add('//;\n1;2')).toBe(3);
+    expect(add('//:\n2:3:4')).toBe(9);
+  });
 });
