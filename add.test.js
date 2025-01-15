@@ -10,4 +10,10 @@ describe("add function", () => {
     expect(add("10,20")).toBe(30);
     expect(add("5, 15")).toBe(20);
   });
+
+  test("should return the sum of comma-separated n digits", () => {
+    expect(add("1,2,3,4,5")).toBe(15);
+    expect(add("10,20,30,40,50,60")).toBe(210);
+    expect(add("5,15,20,25,30,25,40,45,50")).toBe(255);
+  });
 });

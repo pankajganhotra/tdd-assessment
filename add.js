@@ -3,7 +3,7 @@ function add(numbers) {
 
   const numberArray = numbers.split(",")
 
-  return +numberArray[0] + +numberArray[1];
+  return numberArray.reduce((sum, num) => sum + +num, 0);
 }
 
 module.exports = add;
