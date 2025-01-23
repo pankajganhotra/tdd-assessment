@@ -4,12 +4,13 @@ function add(numbers) {
   let delimiter = /,|\n/;
 
   if (numbers.startsWith("//")) {
-    delimiter = numbers.slice(2, numbers.indexOf("\n"));
+    const delimiterPart = numbers.slice(2, numbers.indexOf("\n"));
+    delimiter = new RegExp(`[${delimiterPart.replace(/[.*+?^=!:${}()|\[\]\/\\]/g, '\\$&')}]`, 'g');
     numbers = numbers.slice(numbers.indexOf("\n") + 1);
   }
 
   const numberArray = numbers
-    .split(new RegExp(delimiter))
+    .split(delimiter)
     .map((num) => parseFloat(num.trim()));
 
   const negatives = numberArray.filter((num) => num < 0);
